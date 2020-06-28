@@ -7,7 +7,7 @@ const express = require('express');
 const app = express();
 
 // https://expressjs.com/en/starter/basic-routing.html
-var toLowerCase = require('lowercase-keys');
+
 var todos = [
   		'Go to market',
   		'nấu cơm',
@@ -26,7 +26,7 @@ app.get('/', function (req, res) {
 app.get('/todos', function (req, res) {
  	var q = req.query.q;
  	var matchedActive = todos.filter(function(active){
- 		return  active.indexOf(q) !== -1;
+ 		return  active.toLowerCase().indexOf(q.toLowerCase()) !== -1;
  	});
  	res.render('index', {title: '3-Query Parameters', message: 'TODO - LIST',
  		search: q,
