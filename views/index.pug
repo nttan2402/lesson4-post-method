@@ -4,7 +4,12 @@ html
   body
     h1=message
     span TodoList:
-    span=search
+    form(action='/todos', method='GET')
+  input(type='text', name='q')
+  br
+  br
+  input(type='submit', value='Search')
+
     ul
      each val in todoList
       li= val
