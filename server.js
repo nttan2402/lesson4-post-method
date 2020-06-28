@@ -13,7 +13,7 @@ var todos = [
   		'nấu cơm',
   		'Washing dishes',
   		'Learing at coderX-Tokyo'
-  	]
+  	];
 app.set('views', './views');
 app.set('view engine', 'pug');
 
@@ -26,9 +26,12 @@ app.get('/', function (req, res) {
 app.get('/todos', function (req, res) {
  	var q = req.query.q;
  	var matchedActive = todos.filter(function(active){
- 		return  active.toLowerCase().indexOf(q.toLowerCase()) !== -1;
+ 		return  active.to.indexOf(q) !== -1;
  	});
- 	res.render('index', {title: '3-Query Parameters', message: 'TODO - LIST',
+ 	res.render('index', 
+             {
+    title: '3-Query Parameters', 
+    message: 'TODO - LIST',
  		search: q,
  		todoList: matchedActive
  	});
