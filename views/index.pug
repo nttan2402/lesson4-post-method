@@ -3,12 +3,16 @@ html
     title= title
   body
     h1=message
-    form(action='/todos', method='GET')
-     input(type='text', name='q')
-     br
-     br
-     input(type='submit', value='Search')
+    form(action='/todos' method = 'GET')
+      input(type='text', name='q')
+      br
+      br
+      button Search
 
     ul
      each val in todoList
       li= val
+  form(action="/todos/create" method="POST")
+    label Name 
+    input(type="text" name="todo")
+    button Add Todo
